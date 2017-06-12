@@ -6,7 +6,7 @@ Tiny (<2k gzipped) input/directive mask for currency.
 
 ### Use as component: https://jsfiddle.net/auom8st8/
 
-```
+```html
 <template>
   <div>
     <money v-model="price" v-bind="money" /> {{price}}
