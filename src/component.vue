@@ -12,6 +12,7 @@ import defaults from './options'
 import {format, unformat} from './utils'
 
 export default {
+  name: 'Money',
   props: {
     value: {
       required: true,
