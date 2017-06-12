@@ -4,7 +4,7 @@ Tiny (<2k gzipped) input/directive mask for currency.
 
 # Usage
 
-### Use as componente: https://jsfiddle.net/auom8st8/
+### Use as component: https://jsfiddle.net/auom8st8/
 
 ```
 <template>
