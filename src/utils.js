@@ -54,13 +54,7 @@ function toStr (value) {
   return value ? value.toString() : ''
 }
 
-function backspace (el) {
-  el.value = onlyNumbers(el.value).slice(0, -1)
-}
-
 export {
   format,
-  unformat,
-  backspace,
-  onlyNumbers
+  unformat
 }

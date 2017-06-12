@@ -1,6 +1,7 @@
 <template lang="html">
   <input type="tel"
-         v-model="editableValue"
+         :value="formattedValue"
+         @change="change"
          v-money="{precision, decimal, thousands, prefix, suffix}"
          style="text-align: right" />
 </template>
@@ -45,12 +46,27 @@ export default {
 
   directives: {money},
 
-  computed: {
-    editableValue: {
-      get () { return format(this.value, this.$props) },
-      set (newValue) {
-        this.$emit('input', this.masked ? newValue : unformat(newValue, this.precision))
+  data () {
+    return {
+      formattedValue: ''
+    }
+  },
+
+  watch: {
+    value: {
+      immediate: true,
+      handler (newValue, oldValue) {
+        var formatted = format(newValue, this.$props)
+        if (formatted !== this.formattedValue) {
+          this.formattedValue = formatted
+        }
       }
+    }
+  },
+
+  methods: {
+    change (evt) {
+      this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
     }
   }
 }

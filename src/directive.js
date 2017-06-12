@@ -1,41 +1,22 @@
-import {format, backspace} from './utils'
+import {format} from './utils'
 import assign from './assign'
 import defaults from './options'
-
-function dispatchDelete (e) {
-  var key = e.keyCode || e.which
-  if (key === 8 || key === 46) { // Backspace / Delete
-    e.preventDefault()
-    e.target.dispatchEvent(new KeyboardEvent('keypress'))
-  }
-}
 
 export default function (el, binding) {
   var opt = assign(defaults, binding.value)
 
-  el.value = format(el.value, opt)
-  keepCursorBeforeSuffix()
-
-  function keepCursorBeforeSuffix () {
-    if (el === document.activeElement) {
-      var index = el.value.length - opt.suffix.length
-      el.setSelectionRange(index, index)
-    }
-  }
-
-  function keypress (e) {
-    e.preventDefault()
-    var key = e.keyCode || e.which
-    if (key === 0) { // Backspace / Delete
-      backspace(el)
-    }
-    el.value += String.fromCharCode(key)
+  el.oninput = function () {
+    var positionFromEnd = el.value.length - el.selectionEnd
     el.value = format(el.value, opt)
-    el.dispatchEvent(new Event('input'))
+    positionFromEnd = Math.max(positionFromEnd, opt.suffix.length) // right
+    positionFromEnd = el.value.length - positionFromEnd
+    positionFromEnd = Math.max(positionFromEnd, opt.prefix.length + 1) // left
+    if (el === document.activeElement) {
+      el.setSelectionRange(positionFromEnd, positionFromEnd)
+      setTimeout(function () { el.setSelectionRange(positionFromEnd, positionFromEnd) }, 1) // Android Fix
+    }
+    el.dispatchEvent(new Event('change')) // v-model.lazy
   }
 
-  el.onkeydown = dispatchDelete
-  el.onkeypress = keypress
-  el.oninput = keepCursorBeforeSuffix
-  el.dispatchEvent(new Event('input'))
+  el.dispatchEvent(new Event('input')) // force format after initialization
 }

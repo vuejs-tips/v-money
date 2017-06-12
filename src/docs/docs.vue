@@ -13,7 +13,7 @@
   <label>Directive</label>
   <div class="columns">
     <div class="column col-6 col-sm-12">
-      <input type="tel" v-money="config" v-model="priceDirective" class="form-input input-lg" style="text-align: right" />
+      <input type="tel" v-money="config" v-model.lazy="priceDirective" class="form-input input-lg" style="text-align: right" />
     </div>
     <div class="column col-6 col-sm-12">
       <h3>{{priceDirective}}</h3>
