@@ -2,8 +2,6 @@
 
 ![The Mask Money](https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif)
 
-Tiny (<2k gzipped) input/directive mask for currency.
-
 ## Features
 
 - Lightweight (<2KB gzipped)
