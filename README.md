@@ -1,14 +1,19 @@
-# v-money
+# v-money Mask for Vue.js
+
+![The Mask Money](https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif)
 
 Tiny (<2k gzipped) input/directive mask for currency.
 
 ## Features
 
-- Tiny
-- Dependency Free
-- Component or Directive flavors
-- Support edit in any place of the input
+- Lightweight (<2KB gzipped)
+- Dependency free
 - Mobile support
+- Component or Directive flavors
+- Accept copy/paste
+- Editable
+
+For other types of mask, use [vue-the-mask](https://vuejs-tips.github.io/vue-the-mask)
 
 ## Usage
 
@@ -18,7 +23,8 @@ Tiny (<2k gzipped) input/directive mask for currency.
 import Vue from 'vue'
 import money from 'v-money'
 
-Vue.use(money, {precision: 4}) // register directive v-money and component <money>
+// register directive v-money and component <money>
+Vue.use(money, {precision: 4})
 ```
 
 ### B. Use as component: https://jsfiddle.net/auom8st8/
@@ -26,7 +32,7 @@ Vue.use(money, {precision: 4}) // register directive v-money and component <mone
 ```html
 <template>
   <div>
-    <money v-model="price" v-bind="money" /> {{price}}
+    <money v-model="price" v-bind="money"></money> {{price}}
   </div>
 </template>
 

@@ -1,5 +1,16 @@
 <template lang="html">
 <div class="container col-4 col-xl-6 col-md-8 col-sm-10 col-xs-12">
+
+  <h2>v-money <small class="label">Currency mask input for Vue.js</small></h2>
+
+  <p>
+    <img class="img-responsive centered" src="https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif" />
+  </p>
+
+  <p class="text-center">
+    <a class="btn" href="https://github.com/vuejs-tips/v-money">https://github.com/vuejs-tips/v-money</a>
+  </p>
+
   <label>Component</label>
   <div class="columns">
     <div class="column col-6 col-sm-12">
@@ -63,6 +74,18 @@
       </div>
     </div>
   </div>
+
+  <hr />
+
+  <h3>Features</h3>
+  <ul>
+    <li>Lightweight (<2KB gzipped)</li>
+    <li>Dependency free</li>
+    <li>Mobile support</li>
+    <li>Component or Directive flavors</li>
+    <li>Accept copy/paste</li>
+    <li>Editable</li>
+  </ul>
 </div>
 </template>
 
@@ -88,5 +111,24 @@ export default {
 input {
   font-family: monospace;
   font-size: 1.8rem !important;
+}
+body {
+  background-color: #eee;
+}
+.container {
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+}
+figure {
+  text-align: center;
+  padding-top: 10px;
+}
+figure img {
+  width: 100%;
+  border: 2px solid black;
 }
 </style>
