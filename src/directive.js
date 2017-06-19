@@ -1,9 +1,19 @@
-import {format} from './utils'
+import {format, setCursor} from './utils'
 import assign from './assign'
 import defaults from './options'
 
 export default function (el, binding) {
   var opt = assign(defaults, binding.value)
+
+  // v-money used on a component that's not a input
+  if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
+    var els = el.getElementsByTagName('input')
+    if (els.length !== 1) {
+      throw new Error("v-money requires 1 input, found " + els.length)
+    } else {
+      el = els[0]
+    }
+  }
 
   el.oninput = function () {
     var positionFromEnd = el.value.length - el.selectionEnd
@@ -11,10 +21,7 @@ export default function (el, binding) {
     positionFromEnd = Math.max(positionFromEnd, opt.suffix.length) // right
     positionFromEnd = el.value.length - positionFromEnd
     positionFromEnd = Math.max(positionFromEnd, opt.prefix.length + 1) // left
-    if (el === document.activeElement) {
-      el.setSelectionRange(positionFromEnd, positionFromEnd)
-      setTimeout(function () { el.setSelectionRange(positionFromEnd, positionFromEnd) }, 1) // Android Fix
-    }
+    setCursor(el, positionFromEnd)
     el.dispatchEvent(new Event('change')) // v-model.lazy
   }
 

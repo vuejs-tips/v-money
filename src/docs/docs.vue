@@ -1,7 +1,7 @@
 <template lang="html">
 <div class="container col-4 col-xl-6 col-md-8 col-sm-10 col-xs-12">
 
-  <h2>v-money <small class="label">Currency mask input for Vue.js</small></h2>
+  <h2>v-money <small class="label">Currency mask input for Vue</small></h2>
 
   <p>
     <img class="img-responsive centered" src="https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif" />
@@ -25,6 +25,16 @@
   <div class="columns">
     <div class="column col-6 col-sm-12">
       <input type="tel" v-money="config" v-model.lazy="priceDirective" class="form-input input-lg" style="text-align: right" />
+    </div>
+    <div class="column col-6 col-sm-12">
+      <h3>{{priceDirective}}</h3>
+    </div>
+  </div>
+
+  <label>Directive on Custom Component (TextField from <a href="https://vuetifyjs.com/components/text-fields">vuetify</a>)</label>
+  <div class="columns">
+    <div class="column col-6 col-sm-12">
+      <v-text-field v-money="config" v-model.lazy="priceDirective"></v-text-field>
     </div>
     <div class="column col-6 col-sm-12">
       <h3>{{priceDirective}}</h3>
@@ -92,8 +102,10 @@
 <script>
 import Vue from 'vue'
 import money from '../index'
+import vuetify from 'vuetify'
 
 Vue.use(money)
+Vue.use(vuetify)
 
 export default {
   data () {
@@ -130,5 +142,11 @@ figure {
 figure img {
   width: 100%;
   border: 2px solid black;
+}
+.input-group__input {
+  width: 100%;
+}
+.input-group__input input {
+  width: 100%;
 }
 </style>

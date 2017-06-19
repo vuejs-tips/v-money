@@ -11,13 +11,23 @@
     "compile": "npm run build -- --disable-compress",
     "test": "jest"
   },
-  "keywords": ["vue", "input", "mask", "directive", "currency", "money"],
-  "files": ["dist/"],
+  "keywords": [
+    "vue",
+    "input",
+    "mask",
+    "directive",
+    "currency",
+    "money"
+  ],
+  "files": [
+    "dist/"
+  ],
   "author": "Marcos Neves <marcos.neves@gmail.com> (https://vuejs-tips.github.io/)",
   "license": "MIT",
   "devDependencies": {
     "babel-jest": "^20.0.3",
     "babel-preset-vue-app": "^1.2.0",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "vuetify": "^0.12.7"
   }
 }

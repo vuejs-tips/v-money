@@ -54,7 +54,16 @@ function toStr (value) {
   return value ? value.toString() : ''
 }
 
+function setCursor (el, position) {
+  var setSelectionRange = function () { el.setSelectionRange(position, position) }
+  if (el === document.activeElement) {
+    setSelectionRange()
+    setTimeout(setSelectionRange, 1) // Android Fix
+  }
+}
+
 export {
   format,
-  unformat
+  unformat,
+  setCursor
 }
