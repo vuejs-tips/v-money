@@ -24,10 +24,11 @@ export default function (el, binding) {
     setCursor(el, positionFromEnd)
     el.dispatchEvent(new Event('change')) // v-model.lazy
   }
-  
+
   el.onfocus = function () {
-    setCursor(el, el.value.length - opt.suffix.length - 1)
+    setCursor(el, el.value.length - opt.suffix.length)
   }
 
+  el.oninput()
   el.dispatchEvent(new Event('input')) // force format after initialization
 }

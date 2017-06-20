@@ -34,10 +34,10 @@
   <label>Directive on Custom Component (TextField from <a href="https://vuetifyjs.com/components/text-fields">vuetify</a>)</label>
   <div class="columns">
     <div class="column col-6 col-sm-12">
-      <v-text-field v-money="config" v-model.lazy="priceDirective"></v-text-field>
+      <v-text-field v-money="config" v-model.lazy="priceVuetify"></v-text-field>
     </div>
     <div class="column col-6 col-sm-12">
-      <h3>{{priceDirective}}</h3>
+      <h3>{{priceVuetify}}</h3>
     </div>
   </div>
 
@@ -112,6 +112,7 @@ export default {
     return {
       price: 1234.5,
       priceDirective: 5432.1,
+      priceVuetify: 6789.10,
       config: {decimal: ',', thousands: '.', prefix: 'R$ ', suffix: ' #', precision: 2, masked: false}
     }
   }
