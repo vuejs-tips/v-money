@@ -22,7 +22,9 @@ export default function (el, binding) {
     positionFromEnd = el.value.length - positionFromEnd
     positionFromEnd = Math.max(positionFromEnd, opt.prefix.length + 1) // left
     setCursor(el, positionFromEnd)
-    el.dispatchEvent(new Event('change')) // v-model.lazy
+    var event = document.createEvent('Event')
+    event.initEvent('change', true, true);
+    el.dispatchEvent(event) // v-model.lazy
   }
 
   el.onfocus = function () {
@@ -30,5 +32,7 @@ export default function (el, binding) {
   }
 
   el.oninput()
-  el.dispatchEvent(new Event('input')) // force format after initialization
+  var event = document.createEvent('Event');
+  event.initEvent('input', true, true);
+  el.dispatchEvent(event) // force format after initialization
 }
