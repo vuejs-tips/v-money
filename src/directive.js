@@ -1,4 +1,4 @@
-import {format, setCursor} from './utils'
+import {format, setCursor, event} from './utils'
 import assign from './assign'
 import defaults from './options'
 
@@ -22,9 +22,7 @@ export default function (el, binding) {
     positionFromEnd = el.value.length - positionFromEnd
     positionFromEnd = Math.max(positionFromEnd, opt.prefix.length + 1) // left
     setCursor(el, positionFromEnd)
-    var event = document.createEvent('Event')
-    event.initEvent('change', true, true);
-    el.dispatchEvent(event) // v-model.lazy
+    el.dispatchEvent(event('change')) // v-model.lazy
   }
 
   el.onfocus = function () {
@@ -32,7 +30,5 @@ export default function (el, binding) {
   }
 
   el.oninput()
-  var event = document.createEvent('Event');
-  event.initEvent('input', true, true);
-  el.dispatchEvent(event) // force format after initialization
+  el.dispatchEvent(event('input')) // force format after initialization
 }
