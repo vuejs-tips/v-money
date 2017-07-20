@@ -4,19 +4,22 @@ function format (input, opt = defaults) {
   if (typeof input === 'number') {
     input = input.toFixed(fixed(opt.precision))
   }
+  var negative = input.indexOf('-') >= 0 ? '-' : ''
+
   var numbers = onlyNumbers(input)
   var currency = numbersToCurrency(numbers, opt.precision)
   var parts = toStr(currency).split('.')
   var integer = parts[0]
   var decimal = parts[1]
   integer = addThousandSeparator(integer, opt.thousands)
-  return opt.prefix + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
+  return opt.prefix + negative + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
 }
 
 function unformat (input, precision) {
+  var negative = input.indexOf('-') >= 0 ? -1 : 1
   var numbers = onlyNumbers(input)
   var currency = numbersToCurrency(numbers, precision)
-  return parseFloat(currency)
+  return parseFloat(currency) * negative
 }
 
 function onlyNumbers (input) {
