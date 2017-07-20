@@ -4,6 +4,8 @@
   "description": "Vue currency input/directive mask",
   "main": "dist/v-money.js",
   "scripts": {
+    "upgrade:check": "ncu",
+    "upgrade:apply": "ncu -a",
     "dev": "vue build ./src/docs/docs.vue --config ./src/docs/build.config.js --host 0.0.0.0",
     "build": "vue build ./src/index.js --config ./build.config.js --dist ./dist/ --prod --lib",
     "docs:build": "vue build ./src/docs/docs.vue --config ./src/docs/build.config.js --dist ./docs/ --prod",
@@ -28,6 +30,7 @@
     "babel-jest": "^20.0.3",
     "babel-preset-vue-app": "^1.2.0",
     "jest": "^20.0.4",
-    "vuetify": "^0.12.7"
+    "npm-check-updates": "^2.12.1",
+    "vuetify": "^0.14.5"
   }
 }
