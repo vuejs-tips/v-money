@@ -57,7 +57,7 @@ Vue.use(money, {precision: 4})
 </script>
 ```
 
-### C. Use as directive: https://jsfiddle.net/auom8st8/
+### C. Use as directive: https://jsfiddle.net/nj3cLoum/2/
 Must use `vmodel.lazy` to bind works properly.
 ```html
 <template>
@@ -79,12 +79,12 @@ Must use `vmodel.lazy` to bind works properly.
           prefix: 'R$ ',
           suffix: ' #',
           precision: 2,
-          masked: false
+          masked: false /* doesn't work with directive */
         }
       }
     },
 
-    directives: {VMoney}
+    directives: {money: VMoney}
   }
 </script>
 ```
@@ -94,11 +94,11 @@ Must use `vmodel.lazy` to bind works properly.
 | property  | Required | Type    | Default | Description                                             |
 |-----------|----------|---------|---------|---------------------------------------------------------|
 | precision | **true** | Number  | 2       | How many decimal places                                 |
-| decimal   | false    | String  | "."       | Decimal separator                                       |
-| thousands | false    | String  | ","       | Thousands separator                                     |
+| decimal   | false    | String  | "."     | Decimal separator                                       |
+| thousands | false    | String  | ","     | Thousands separator                                     |
 | prefix    | false    | String  | ""      | Currency symbol followed by a Space, like "R$ "         |
 | suffix    | false    | String  | ""      | Percentage for example: " %"                            |
-| masked    | false    | Boolean | false   | If the component output should include the mask or not |
+| masked    | false    | Boolean | false   | If the component output should include the mask or not  |
 
 ### References
 
