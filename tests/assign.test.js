@@ -1,4 +1,21 @@
 import assign from '../src/assign'
+test ('assign undefined', () => {
+  var result = assign(undefined, undefined)
+  var expected = {}
+  expect(result).toEqual(expected)
+})
+
+test ('assign null', () => {
+  var result = assign(null, null)
+  var expected = {}
+  expect(result).toEqual(expected)
+})
+
+test ('assign error', () => {
+  var result = assign({foo: 'foo'}, null)
+  var expected = {foo: 'foo'}
+  expect(result).toEqual(expected)
+})
 
 test ('assign', () => {
   var defaults = {a: 1, b: 2}
