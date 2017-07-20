@@ -121,6 +121,9 @@ export default {
 
 <style lang="css">
 @import url('https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.2.14/spectre.min.css');
+.v-money {
+  text-align: right;
+}
 input {
   font-family: monospace;
   font-size: 1.8rem !important;

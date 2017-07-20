@@ -3,7 +3,7 @@
          :value="formattedValue"
          @change="change"
          v-money="{precision, decimal, thousands, prefix, suffix}"
-         style="text-align: right" />
+         class="v-money" />
 </template>
 
 <script>
