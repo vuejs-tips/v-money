@@ -4,6 +4,7 @@
   "description": "Vue currency input/directive mask",
   "main": "dist/v-money.js",
   "scripts": {
+    "size": "size-limit",
     "upgrade:check": "ncu",
     "upgrade:apply": "ncu -a",
     "dev": "vue build ./src/docs/docs.vue --config ./src/docs/build.config.js --host 0.0.0.0",
@@ -24,6 +25,12 @@
   "files": [
     "dist/"
   ],
+  "size-limit": [
+    {
+      "path": "dist/v-money.js",
+      "limit": "1.6 KB"
+    }
+  ],
   "author": "Marcos Neves <marcos.neves@gmail.com> (https://vuejs-tips.github.io/)",
   "license": "MIT",
   "devDependencies": {
@@ -31,6 +38,7 @@
     "babel-preset-vue-app": "^1.2.1",
     "jest": "^20.0.4",
     "npm-check-updates": "^2.12.1",
+    "size-limit": "^0.10.0",
     "vuetify": "^0.14.11"
   }
 }
