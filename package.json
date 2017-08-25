@@ -28,9 +28,9 @@
   "license": "MIT",
   "devDependencies": {
     "babel-jest": "^20.0.3",
-    "babel-preset-vue-app": "^1.2.0",
+    "babel-preset-vue-app": "^1.2.1",
     "jest": "^20.0.4",
     "npm-check-updates": "^2.12.1",
-    "vuetify": "^0.14.5"
+    "vuetify": "^0.14.11"
   }
 }
