@@ -3,6 +3,7 @@ import assign from './assign'
 import defaults from './options'
 
 export default function (el, binding) {
+  if (!binding.value) return
   var opt = assign(defaults, binding.value)
 
   // v-money used on a component that's not a input
